@@ -60,6 +60,7 @@ export default {
   flex-direction: column;
   border-radius: 7px;
   filter: grayscale();
+  background-color: white;
 }
 
 .length:hover{
