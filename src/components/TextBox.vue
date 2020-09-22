@@ -95,9 +95,9 @@ export default {
   min-height: initial;
 }
 .md-input {
-  font-size: 28px !important;
+  font-size: 28px;
   width: 318px;
-  height: 50px;
+  height: 40px;
   font-weight: bold;
   border: solid 1px  #e7dcfe;;
 }
@@ -106,7 +106,7 @@ export default {
   height: 44px;
   border: 1px solid #e7dcfe;
   outline: none;
-  padding: 15px;
+  padding: 10px;
   font-family: Montserrat, Medium;
   margin-right:21px
   }
