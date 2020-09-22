@@ -47,7 +47,6 @@ export default {
 
   methods:{
     Changedropdown:function( value){
-      alert(value)
       switch(value) {
         case 'Length':
          this.selectDropdown=this.Length;
