@@ -22,17 +22,41 @@
 
 <script>
 import {bus} from '../main' 
+import QuantityMeasurement from '../service/QuantityMeasurement'
 
 export default {
   name:'MediaCard',
 
-methods:{
-  Selected:function(clikedunit) { 
-    bus.$emit('getValue', clikedunit)
+  methods:{
 
-  }
+      Selected:function(clikedunit) { 
+      bus.$emit('changedMainUnit', clikedunit)
+      },
+
+      fetchMainUnits: function () {
+        QuantityMeasurement.getMainUnits()
+          .then((response) => {
+           this.mainUnits = response.data;
+           bus.$emit("changedMainUnit", this.mainUnits[0]);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+      created() {
+        this.fetchMainUnits();
+    },
+
+      updated() {
+        this.Selected(
+        this.mainUnits[0]
+      // this.mainUnitsProperties[0].primaryColor,
+      // this.mainUnitsProperties[0].secondaryColor
+         );
+      }
+},
 }
-};
 </script>
 
 <style scoped>

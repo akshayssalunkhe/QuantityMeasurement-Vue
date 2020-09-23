@@ -4,8 +4,14 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material'
 import VueRouter from 'vue-router'
 import Routes from './routes'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 
 Vue.config.productionTip = false
+
+Vue.use(VueAxios)
+Vue.use(axios)
 
 Vue.use(VueRouter)
 
