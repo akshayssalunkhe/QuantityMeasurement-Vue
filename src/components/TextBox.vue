@@ -51,20 +51,12 @@ export default {
     name:'TextBox',
     data(){ 
       return{
-      // initialFrom:"1",
-      // initialTo:"1",
-      // selectDropdown:[],
-      // Length:['Meter','kilometer','centimeter'],
-      // Volume:['liter','mililiter'],
-      // Temperature:['kelvin','fahrenheit'],
-
     selectedMainUnit: "",
     subUnits: [],
     firstTextValue: "1",
     secondTextValue: "",
     selectedFirstUnit: null,
-    selectedSecondUnit: null,
-          
+    selectedSecondUnit: null,         
             }     
     },
 
@@ -75,7 +67,6 @@ export default {
         .getSubUnit(selectedMainUnit)        
         .then((response) => {
           this.subUnits = response.data;
-          // console.log(this.subUnits)
         })
        .catch((error) => {
           console.log(error);

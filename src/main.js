@@ -10,8 +10,6 @@ import VueAxios from 'vue-axios'
 
 Vue.config.productionTip = false
 
-// Vue.use(VueAxios)
-// Vue.use(axios)
 Vue.prototype.$VueAxios=VueAxios
 
 Vue.prototype.$axios=axios

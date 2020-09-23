@@ -44,8 +44,6 @@ export default {
         QuantityMeasurement.getMainUnits()
           .then((response) => {
            this.mainUnits = response.data;
-          //  console.log(this.mainUnits[1])
-          //  bus.$emit("changedMainUnit", this.clikedunit);
         })
         .catch((error) => {
           console.log(error);
@@ -53,17 +51,8 @@ export default {
     },
   },
       created() {
-        // console.log('hello')
         this.fetchMainUnits();
     },
-
-      // updated() {
-      //   this.Selected(
-      //   this.mainUnits[0]
-      // this.mainUnitsProperties[0].primaryColor,
-      // this.mainUnitsProperties[0].secondaryColor
-        //  );
-      // },
 }
 </script>
 
