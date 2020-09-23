@@ -1,8 +1,9 @@
 import httpservice from "./HttpService";
 
 export default {
+    name:'QuantityMeasurement',
     getMainUnits() {
-        return httpservice.get('type');
+        return httpservice.get(`type`);
     },
 
     getSubUnit(selectedUnits) {

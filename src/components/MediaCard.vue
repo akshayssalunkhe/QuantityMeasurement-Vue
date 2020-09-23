@@ -3,15 +3,15 @@
     <div class="selection-container">
       <p>CHOOSE TYPE</p>
       <div class="cards">
-        <md-content @click ="Selected('Length')" class="Length">
+        <md-content @click ="Selected(mainUnits[0])" class="Length">
           <img src="../assets/Images/scale.png" />
           <p>Length</p>
         </md-content>
-        <md-content @click="Selected('Temperature')" class="Temperature">
+        <md-content @click="Selected(mainUnits[1])" class="Temperature">
           <img src="../assets/Images/thermameter.png" />
           <p>Temperature</p>
         </md-content>
-        <md-content @click="Selected('Volume')" class="Volume">
+        <md-content @click="Selected(mainUnits[2])" class="Volume">
           <img src="../assets/Images/beaker.png" />
           <p>Volume</p>
         </md-content>
@@ -22,14 +22,21 @@
 
 <script>
 import {bus} from '../main' 
-import QuantityMeasurement from '../service/QuantityMeasurement'
+import QuantityMeasurement from '../services/QuantityMeasurement.js'
 
 export default {
   name:'MediaCard',
+  data(){
+    return{
+      mainUnits:[]
+    };
+  },
+  
 
   methods:{
 
       Selected:function(clikedunit) { 
+        console.log("this is selected func")
       bus.$emit('changedMainUnit', clikedunit)
       },
 
@@ -37,25 +44,26 @@ export default {
         QuantityMeasurement.getMainUnits()
           .then((response) => {
            this.mainUnits = response.data;
-           bus.$emit("changedMainUnit", this.mainUnits[0]);
+          //  console.log(this.mainUnits[1])
+          //  bus.$emit("changedMainUnit", this.clikedunit);
         })
         .catch((error) => {
           console.log(error);
         });
     },
-
+  },
       created() {
+        // console.log('hello')
         this.fetchMainUnits();
     },
 
-      updated() {
-        this.Selected(
-        this.mainUnits[0]
+      // updated() {
+      //   this.Selected(
+      //   this.mainUnits[0]
       // this.mainUnitsProperties[0].primaryColor,
       // this.mainUnitsProperties[0].secondaryColor
-         );
-      }
-},
+        //  );
+      // },
 }
 </script>
 

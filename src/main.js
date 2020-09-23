@@ -10,9 +10,11 @@ import VueAxios from 'vue-axios'
 
 Vue.config.productionTip = false
 
-Vue.use(VueAxios)
-Vue.use(axios)
+// Vue.use(VueAxios)
+// Vue.use(axios)
+Vue.prototype.$VueAxios=VueAxios
 
+Vue.prototype.$axios=axios
 Vue.use(VueRouter)
 
 Vue.use(VueMaterial)

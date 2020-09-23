@@ -29,7 +29,7 @@
               v-model="secondTextValue"
            ></md-input>
         </md-field>
-        <select class="selectto">
+        <select class="selectto" @change="changedSecondUnit()" v-model="selectedSecondUnit"> 
             <option
              class="option-box"
                 v-for="subUnit in subUnits"
@@ -75,6 +75,7 @@ export default {
         .getSubUnit(selectedMainUnit)        
         .then((response) => {
           this.subUnits = response.data;
+          // console.log(this.subUnits)
         })
        .catch((error) => {
           console.log(error);
@@ -110,9 +111,9 @@ export default {
           console.log(error);
         });
     },
-  
+  },
   watch: {
-    subUnits: function () {
+      subUnits: function () {
       this.selectedFirstUnit = this.subUnits[0];
       this.selectedSecondUnit = this.subUnits[1];
       this.firstTextValue='1';
@@ -123,13 +124,13 @@ export default {
     mounted() {
     bus.$on("changedMainUnit", (unit) => {
       this.selectedMainUnit = unit;
+      console.log(this.selectedMainUnit)
       this.fetchSubUnits(this.selectedMainUnit);
     });
     this.selectedFirstUnit = this.subUnits[0];
     this.selectedSecondUnit = this.subUnits[1];
   },
 
-},
 }
 </script>
 
