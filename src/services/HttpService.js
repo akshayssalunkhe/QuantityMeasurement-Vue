@@ -1,18 +1,19 @@
 import axios from 'axios';
+const URL= process.env.VUE_APP_PROJECT_URL
 
 export default {
 
     post(url, conversionDTO) {
         return axios({
             method: 'post',
-            url: `http://localhost:8080/unit/${url}`,
+            url: `${URL}/${url}`,
             data: conversionDTO,
         })
     },
     get(url) {
         return axios({
             method: 'get',
-            url: `http://localhost:8080/unit/${url}`,
+            url: `${URL}/${url}`,
         })
     }
 }
